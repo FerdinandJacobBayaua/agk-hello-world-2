@@ -29,14 +29,35 @@ CreateText(2, "Welcome")
 SetTextSize(2, 100)
 
 helloDirX = 1
+helloDirY = -1
 do
+	// Make Hello World go left and right
     helloX = helloX + helloDirX * 5
-    SetTextPosition(1, helloX, helloY)
+    //SetTextPosition(1, helloX, helloY)
     if helloX > GetVirtualWidth() - GetTextTotalWidth(1)
 		helloDirX = - 1
 	endif
     if helloX < 0
 		helloDirX = 1
+	endif
+/*	// -- First Attempt -- //
+	helloY = helloY + helloDirY * 5
+	SetTextPosition(1, helloX, helloY)
+	if helloY > GetVirtualHeight() - GetTextTotalHeight(1)
+		helloDirY = - 1
+	endif
+	if helloY < 0
+		helloDirY = 1
+	endif
+*/	
+	// Make Hello World go up and down
+	helloY = helloY + helloDirY * 5
+	SetTextPosition(1, helloX, helloY)
+	if helloY > GetVirtualHeight() - GetTextTotalHeight(1)
+		helloDirY = -1
+	endif
+	if helloY < 0
+		helloDirY = 1
 	endif
 	
     Sync()
